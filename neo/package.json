@@ -1,0 +1,72 @@
+{
+  "name": "@neo/ui",
+  "version": "1.0.0",
+  "private": false,
+  "description": "Neo design system",
+  "main": "./dist/index.cjs.js",
+  "module": "./dist/index.es.js",
+  "types": "./dist/src/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/src/index.d.ts",
+      "import": "./dist/index.es.js",
+      "require": "./dist/index.cjs.js"
+    },
+    "./button": {
+      "types": "./dist/src/components/button/index.d.ts",
+      "import": "./dist/button.es.js",
+      "require": "./dist/button.cjs.js"
+    },
+    "./label": {
+      "types": "./dist/src/components/label/index.d.ts",
+      "import": "./dist/label.es.js",
+      "require": "./dist/label.cjs.js"
+    },
+    "./product": {
+      "types": "./dist/src/components/product/index.d.ts",
+      "import": "./dist/product.es.js",
+      "require": "./dist/product.cjs.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "scripts": {
+    "build": "vite build",
+    "storybook": "storybook dev -p 6006 --config-dir ./docs/.storybook",
+    "build-storybook": "storybook build --config-dir ./docs/.storybook",
+    "lint": "eslint src"
+  },
+  "peerDependencies": {
+    "react": "^19.2.4",
+    "react-dom": "^19.2.4"
+  },
+  "devDependencies": {
+    "@chromatic-com/storybook": "^5.1.1",
+    "@storybook/addon-a11y": "^10.3.3",
+    "@storybook/addon-docs": "^10.3.3",
+    "@storybook/addon-onboarding": "^10.3.3",
+    "@storybook/addon-vitest": "^10.3.3",
+    "@storybook/react": "^10.3.3",
+    "@storybook/react-vite": "^10.3.3",
+    "@types/node": "^20",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "@typescript-eslint/eslint-plugin": "^8.59.0",
+    "@typescript-eslint/parser": "^8.59.0",
+    "@vitejs/plugin-react": "^6.0.1",
+    "@vitest/browser-playwright": "^4.1.2",
+    "@vitest/coverage-v8": "^4.1.2",
+    "eslint": "^9.39.4",
+    "playwright": "^1.58.2",
+    "storybook": "^10.3.3",
+    "typescript": "^6.0.2",
+    "vite": "^8.0.3",
+    "vite-plugin-dts": "^4.0.1",
+    "vite-plugin-lib-inject-css": "^2.2.2",
+    "vitest": "^4.1.2"
+  }
+}

@@ -1,0 +1,53 @@
+{
+  "name": "neo",
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "library",
+  "sourceRoot": "src",
+  "prefix": "neo",
+  "targets": {
+    "build": {
+      "executor": "nx:run-script",
+      "options": {
+        "script": "build"
+      },
+      "inputs": [
+        "{projectRoot}/src/**/*",
+        "{projectRoot}/package.json",
+        "{projectRoot}/vite.config.ts",
+        "{projectRoot}/tsconfig.json"
+      ],
+      "outputs": ["{projectRoot}/dist"],
+      "cache": true
+    },
+    "storybook": {
+      "executor": "nx:run-script",
+      "options": {
+        "script": "storybook"
+      }
+    },
+    "build-storybook": {
+      "executor": "nx:run-script",
+      "options": {
+        "script": "build-storybook"
+      },
+      "inputs": [
+        "{projectRoot}/src/**/*",
+        "{projectRoot}/docs/.storybook/**/*"
+      ],
+      "outputs": ["{projectRoot}/storybook-static"],
+      "cache": true
+    },
+    "lint": {
+      "executor": "nx:run-script",
+      "options": {
+        "script": "lint"
+      },
+      "inputs": [
+        "{projectRoot}/src/**/*",
+        "{workspaceRoot}/.eslintrc.json"
+      ],
+      "cache": true
+    }
+  },
+  "tags": ["scope:neo"]
+}

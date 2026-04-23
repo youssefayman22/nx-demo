@@ -1,0 +1,19 @@
+{
+  "scripts": {
+    "build": "nx run-many --target=build",
+    "build:neo": "nx build neo",
+    "build:demo": "nx build demo-app",
+    "build:parallel": "nx run-many --target=build --parallel",
+    "lint": "nx run-many --target=lint",
+    "lint:neo": "nx lint neo",
+    "lint:demo": "nx lint demo-app",
+    "graph": "nx graph",
+    "list": "nx list",
+    "dev": "nx run-many --target=dev --parallel"
+  },
+  "devDependencies": {
+    "@nx/eslint": "^22.6.5",
+    "@nx/eslint-plugin": "^22.6.5",
+    "nx": "22.6.5"
+  }
+}

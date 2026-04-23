@@ -1,0 +1,28 @@
+.neo-button {
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background 0.2s ease;
+}
+
+.neo-button--primary {
+  background-color: #3b82f6;
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 8px;
+}
+
+.neo-button--primary:hover {
+  background-color: #2563eb;
+}
+
+.neo-button--secondary {
+  background-color: #10b981;
+  color: #ffffff;
+  padding: 8px 16px;
+  border-radius: 8px;
+}
+
+.neo-button--secondary:hover {
+  background-color: #059669;
+}

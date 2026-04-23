@@ -1,0 +1,25 @@
+.neo-product {
+  display: inline-flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 1rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  background-color: #ffffff;
+  box-shadow: 0 16px 40px rgba(15, 23, 42, 0.08);
+  max-width: 360px;
+}
+
+.neo-product__row {
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+.neo-product__id {
+  color: #4b5563;
+}
+
+.neo-product__title {
+  color: #111827;
+  font-weight: 700;
+}
