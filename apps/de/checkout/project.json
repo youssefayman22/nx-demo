@@ -1,0 +1,73 @@
+{
+  "name": "de-checkout",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/de/checkout/src",
+  "projectType": "application",
+  "tags": ["type:app", "team:de", "scope:internal"],
+  "targets": {
+    "build": {
+      "executor": "@nx/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/apps/de/checkout"
+      },
+      "configurations": {
+        "development": {
+          "mode": "development"
+        },
+        "production": {
+          "mode": "production"
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/vite:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "de-checkout:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "de-checkout:build:development",
+          "hmr": true
+        },
+        "production": {
+          "buildTarget": "de-checkout:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "preview": {
+      "dependsOn": ["build"],
+      "executor": "@nx/vite:preview-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "de-checkout:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "de-checkout:build:development"
+        },
+        "production": {
+          "buildTarget": "de-checkout:build:production"
+        }
+      }
+    },
+    "test": {
+      "executor": "@nx/vitest:test",
+      "outputs": ["{options.reportsDirectory}"],
+      "options": {
+        "reportsDirectory": "coverage/apps/de/checkout"
+      }
+    },
+    "serve-static": {
+      "executor": "@nx/web:file-server",
+      "dependsOn": ["build"],
+      "options": {
+        "buildTarget": "de-checkout:build",
+        "spa": true
+      }
+    }
+  }
+}

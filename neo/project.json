@@ -44,10 +44,10 @@
       },
       "inputs": [
         "{projectRoot}/src/**/*",
-        "{workspaceRoot}/.eslintrc.json"
+        "{workspaceRoot}/eslint.config.js"
       ],
       "cache": true
     }
   },
-  "tags": ["scope:neo"]
+  "tags": ["type:design-system", "team:platform", "scope:public"]
 }

@@ -1,0 +1,23 @@
+{
+  "name": "pt-landing-page-e2e",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "projectType": "application",
+  "sourceRoot": "apps/pt/landing-page-e2e/src",
+  "tags": [],
+  "implicitDependencies": ["pt-landing-page"],
+  "targets": {
+    "e2e": {
+      "executor": "@nx/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/pt/landing-page-e2e/cypress.config.ts",
+        "testingType": "e2e",
+        "devServerTarget": "pt-landing-page:dev"
+      },
+      "configurations": {
+        "ci": {
+          "devServerTarget": "pt-landing-page:serve-static"
+        }
+      }
+    }
+  }
+}

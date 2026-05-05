@@ -12,7 +12,6 @@ export const Product = ({
     typeof window === "undefined" ? "SERVER" : "CLIENT",
   );
  // comment to test the build cache
- // comment to test the build cache
   return (
     <div className="neo-product">
       <div className="neo-product__row neo-product__id">

@@ -5,7 +5,22 @@ module.exports = [
   ...nx.configs['flat/typescript'],
   ...nx.configs['flat/javascript'],
   {
-    ignores: ['**/dist', '**/node_modules', '**/.storybook'],
+    ignores: [
+      '**/dist',
+      '**/node_modules',
+      '**/.storybook',
+      '**/vite.config.*.timestamp*',
+      '**/vitest.config.*.timestamp*',
+      // E2E test files and projects
+      '**/e2e/**',
+      '**/*-e2e/**',
+      '**/*.e2e.ts',
+      '**/*.e2e.js',
+      '**/*.cy.ts',
+      '**/*.cy.js',
+      '**/cypress/**',
+      'apps/**/*-e2e',
+    ],
   },
   {
     files: ['**/*.ts', '**/*.tsx', '**/*.js', '**/*.jsx'],
