@@ -30,6 +30,7 @@ export default async function appGenerator(
     directory: projectRoot,
     style: 'css',
     bundler: 'vite',
+    linter: 'eslint',
     unitTestRunner: 'vitest',
     e2eTestRunner: 'cypress',
     routing: false,

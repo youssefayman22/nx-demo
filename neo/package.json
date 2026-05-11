@@ -26,6 +26,21 @@
       "types": "./dist/src/components/product/index.d.ts",
       "import": "./dist/product.es.js",
       "require": "./dist/product.cjs.js"
+    },
+    "./card": {
+      "types": "./dist/src/components/card/index.d.ts",
+      "import": "./dist/card.es.js",
+      "require": "./dist/card.cjs.js"
+    },
+    "./input": {
+      "types": "./dist/src/components/input/index.d.ts",
+      "import": "./dist/input.es.js",
+      "require": "./dist/input.cjs.js"
+    },
+    "./badge": {
+      "types": "./dist/src/components/badge/index.d.ts",
+      "import": "./dist/badge.es.js",
+      "require": "./dist/badge.cjs.js"
     }
   },
   "files": [

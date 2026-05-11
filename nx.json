@@ -1,7 +1,7 @@
 {
   "$schema": "./node_modules/nx/schemas/nx-schema.json",
   "defaultBase": "master",
-  "projectRoots": ["neo", "demo/demo-app"],
+  "projectRoots": ["neo", "apps/**", "tools/**"],
   "analytics": true,
   "targetDefaults": {
     "build": {
@@ -27,13 +27,15 @@
       "application": {
         "babel": true,
         "style": "css",
+        "linter": "eslint",
         "bundler": "vite"
       },
       "component": {
         "style": "css"
       },
       "library": {
-        "style": "css"
+        "style": "css",
+        "linter": "eslint"
       }
     }
   }

@@ -1,11 +1,18 @@
 import "./button.css";
 
-// comment to test the build cache
-type ButtonProps = {
+type ButtonProps = React.ButtonHTMLAttributes<HTMLButtonElement> & {
   variant?: "primary" | "secondary";
-  children: React.ReactNode;
 };
 
-export const Button = ({ variant = "primary", children }: ButtonProps) => {
-  return <button className={`neo-button neo-button--${variant}`}>{children}</button>;
+// comment
+export const Button = ({ variant = "primary", className, children, type = "button", ...props }: ButtonProps) => {
+  const buttonClassName = className
+    ? `neo-button neo-button--${variant} ${className}`
+    : `neo-button neo-button--${variant}`;
+
+  return (
+    <button className={buttonClassName} type={type} {...props}>
+      {children}
+    </button>
+  );
 };

@@ -7,6 +7,8 @@ argument-hint: '[instructions] [--max-cycles N] [--timeout MINUTES] [--verbosity
 
 You are the orchestrator for monitoring Nx Cloud CI pipeline executions and handling self-healing fixes. You spawn subagents to interact with Nx Cloud, run deterministic decision scripts, and take action based on the results.
 
+Workspace note: the local Nx app generator is `generators:app` in `tools/generators`.
+
 ## Context
 
 - **Current Branch:** !`git branch --show-current`

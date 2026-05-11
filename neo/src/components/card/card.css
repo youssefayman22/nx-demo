@@ -1,0 +1,28 @@
+.neo-card {
+  border-radius: 8px;
+  padding: 1.5rem;
+  background: #fff;
+}
+
+.neo-card--default {
+  border: 1px solid #e2e8f0;
+}
+
+.neo-card--elevated {
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.neo-card--outlined {
+  border: 2px solid #3b82f6;
+}
+
+.neo-card__header {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: #1e293b;
+}
+
+.neo-card__body {
+  color: #475569;
+}

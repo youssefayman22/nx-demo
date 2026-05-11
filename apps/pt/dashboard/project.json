@@ -1,0 +1,92 @@
+{
+  "name": "pt-dashboard",
+  "$schema": "../../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/pt/dashboard/src",
+  "projectType": "application",
+  "tags": ["type:app", "team:pt", "scope:internal"],
+  "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    },
+    "build": {
+      "executor": "@nx/vite:build",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "outputPath": "dist/apps/pt/dashboard"
+      },
+      "configurations": {
+        "development": {
+          "mode": "development"
+        },
+        "production": {
+          "mode": "production"
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nx/vite:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "pt-dashboard:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "pt-dashboard:build:development",
+          "hmr": true
+        },
+        "production": {
+          "buildTarget": "pt-dashboard:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "preview": {
+      "dependsOn": ["build"],
+      "executor": "@nx/vite:preview-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "pt-dashboard:build"
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "pt-dashboard:build:development"
+        },
+        "production": {
+          "buildTarget": "pt-dashboard:build:production"
+        }
+      }
+    },
+    "test": {
+      "executor": "@nx/vitest:test",
+      "outputs": ["{options.reportsDirectory}"],
+      "options": {
+        "reportsDirectory": "coverage/apps/pt/dashboard"
+      }
+    },
+    "serve-static": {
+      "executor": "@nx/web:file-server",
+      "dependsOn": ["build"],
+      "options": {
+        "buildTarget": "pt-dashboard:build",
+        "spa": true
+      }
+    },
+    "e2e": {
+      "executor": "@nx/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/pt/dashboard/cypress.config.ts",
+        "testingType": "e2e",
+        "devServerTarget": "pt-dashboard:serve"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "pt-dashboard:serve:production"
+        },
+        "ci": {
+          "devServerTarget": "pt-dashboard:serve-static"
+        }
+      }
+    }
+  }
+}

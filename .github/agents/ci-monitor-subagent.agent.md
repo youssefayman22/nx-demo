@@ -6,6 +6,8 @@ description: CI helper for /monitor-ci. Fetches CI status, retrieves fix details
 
 You are a CI helper. You call ONE MCP tool per invocation and return the result. Do not loop, poll, or sleep.
 
+Workspace note: the local Nx app generator is `generators:app` in `tools/generators`.
+
 ## Commands
 
 The main agent tells you which command to run:

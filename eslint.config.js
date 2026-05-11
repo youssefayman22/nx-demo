@@ -11,7 +11,6 @@ module.exports = [
       '**/.storybook',
       '**/vite.config.*.timestamp*',
       '**/vitest.config.*.timestamp*',
-      // E2E test files and projects
       '**/e2e/**',
       '**/*-e2e/**',
       '**/*.e2e.ts',
@@ -19,7 +18,9 @@ module.exports = [
       '**/*.cy.ts',
       '**/*.cy.js',
       '**/cypress/**',
-      'apps/**/*-e2e',
+      '**/cypress.config.ts',
+      '**/cypress.config.js',
+      '**/cypress.config.mjs',
     ],
   },
   {
@@ -32,12 +33,16 @@ module.exports = [
           allow: [],
           depConstraints: [
             {
-              sourceTag: 'scope:demo-app',
-              onlyDependOnLibsWithTags: ['scope:demo-app', 'scope:neo'],
+              sourceTag: 'scope:internal',
+              onlyDependOnLibsWithTags: ['scope:public'],
             },
             {
-              sourceTag: 'scope:neo',
-              onlyDependOnLibsWithTags: ['scope:neo'],
+              sourceTag: 'scope:public',
+              onlyDependOnLibsWithTags: ['scope:public'],
+            },
+            {
+              sourceTag: 'scope:tools',
+              onlyDependOnLibsWithTags: ['scope:public', 'scope:tools'],
             },
           ],
         },

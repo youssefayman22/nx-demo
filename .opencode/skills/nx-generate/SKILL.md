@@ -7,6 +7,8 @@ description: Generate code using nx generators. INVOKE IMMEDIATELY when user men
 
 Nx generators are powerful tools that scaffold projects, make automated code migrations or automate repetitive tasks in a monorepo. They ensure consistency across the codebase and reduce boilerplate work.
 
+Workspace note for this repo: the local team-app generator is discoverable as `generators:app` in `tools/generators`.
+
 This skill applies when the user wants to:
 
 - Create new projects like libraries or applications

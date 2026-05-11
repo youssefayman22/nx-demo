@@ -5,6 +5,9 @@
   "projectType": "application",
   "tags": ["type:app", "team:de", "scope:internal"],
   "targets": {
+    "lint": {
+      "executor": "@nx/eslint:lint"
+    },
     "build": {
       "executor": "@nx/vite:build",
       "outputs": ["{options.outputPath}"],
@@ -67,6 +70,22 @@
       "options": {
         "buildTarget": "de-checkout:build",
         "spa": true
+      }
+    },
+    "e2e": {
+      "executor": "@nx/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/de/checkout/cypress.config.ts",
+        "testingType": "e2e",
+        "devServerTarget": "de-checkout:serve"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "de-checkout:serve:production"
+        },
+        "ci": {
+          "devServerTarget": "de-checkout:serve-static"
+        }
       }
     }
   }

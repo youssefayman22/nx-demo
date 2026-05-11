@@ -6,25 +6,29 @@ Generate React+Vite team applications with automatic governance tags and feature
 
 ```bash
 # Generate a new team application
-pnpm nx g @neo/generators:app checkout --team=payments
+pnpm nx g generators:app checkout --team=payments
 
 # With description
-pnpm nx g @neo/generators:app dashboard --team=platform --description="Admin dashboard"
+pnpm nx g generators:app dashboard --team=platform --description="Admin dashboard"
 
 # Show help
-pnpm nx g @neo/generators:app --help
+pnpm nx g generators:app --help
 ```
 
 ## What It Creates
 
-For `pnpm nx g @neo/generators:app checkout --team=payments`:
+For `pnpm nx g generators:app checkout --team=payments`:
 
 - **Project**: `apps/payments/checkout/`
+- **E2E**: `apps/payments/checkout/e2e/` (nested inside project)
 - **Name**: `payments-checkout`
 - **Tags**: `["type:app", "team:payments", "scope:internal"]` (automatic)
 - **Structure**:
   ```
   apps/payments/checkout/
+  ├── e2e/              # Cypress e2e tests (nested)
+  │   ├── src/
+  │   └── project.json
   ├── src/
   │   ├── app/          # Root app component
   │   ├── features/     # Feature modules
@@ -33,6 +37,30 @@ For `pnpm nx g @neo/generators:app checkout --team=payments`:
   ├── vite.config.ts    # CSS Modules + @ alias
   └── package.json
   ```
+
+## Multiple Projects Per Team
+
+You can create multiple projects under the same team folder:
+
+```bash
+pnpm nx g generators:app checkout --team=payments
+pnpm nx g generators:app billing --team=payments
+pnpm nx g generators:app invoices --team=payments
+```
+
+Results in:
+```
+apps/payments/
+├── checkout/
+│   ├── e2e/
+│   └── src/
+├── billing/
+│   ├── e2e/
+│   └── src/
+└── invoices/
+    ├── e2e/
+    └── src/
+```
 
 ## Governance
 
@@ -46,7 +74,7 @@ All generated apps are validated by `pnpm lint` via `@nx/enforce-module-boundari
 
 ### What the Generator Creates
 
-For `pnpm generate:app --name=checkout --team=payments`:
+For `pnpm nx g generators:app checkout --team=payments`:
 
 ```
 apps/payments/checkout/
@@ -114,49 +142,13 @@ Generated apps can depend on:
 - ✅ The `type:design-system` library (e.g., `neo/`)
 - ❌ **NOT** on other `type:app` projects (enforced by ESLint @nx/enforce-module-boundaries)
 
-## Wiring the Generator into Nx (TODO)
+## Generator Status
 
-To make the generator discoverable via `nx g @neo/app-generator`:
-
-1. Create a workspace plugin that exports the generator
-2. Register in nx.json plugins
-3. Or: Build TypeScript to JavaScript and register via generators.json
-
-Current status: Generator code ready, just needs Nx integration layer.
-
-## Alternative Usage
-
-Until Nx discovery is complete, you can:
+The generator is now discoverable as `generators:app` in Nx.
 
 ```bash
-# Option 1: Use a custom npm script (planned)
-pnpm generate:app --name=myapp --team=myteam
-
-# Option 2: Run the generator code directly via Node
-node -r ts-node/register tools/generators/app-generator/index.ts
-
-# Option 3: Build first, then invoke
-pnpm build
-# Then use generated JavaScript
-```
-
-## Testing the Generator
-
-After wiring is complete:
-
-```bash
-# Dry run to preview changes
-pnpm nx g @neo/app-generator --name=test --team=platform --dry-run
-
-# Create actual app
-pnpm nx g @neo/app-generator --name=checkout --team=payments
-
-# Verify governance tags
-cat apps/payments/checkout/project.json | jq .tags
-# Output: ["type:app", "team:payments", "scope:internal"]
-
-# Run lint to ensure no boundary violations
-pnpm lint
+pnpm nx g generators:app dashboard --team=platform --dry-run
+pnpm nx g generators:app checkout --team=payments
 ```
 
 ## Requirements

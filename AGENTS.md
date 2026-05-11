@@ -13,6 +13,8 @@
 ## Scaffolding & Generators
 
 - For scaffolding tasks (creating apps, libs, project structure, setup), ALWAYS invoke the `nx-generate` skill FIRST before exploring or calling MCP tools
+- The local team-app generator is discoverable as `generators:app` and lives under `tools/generators`
+- Prefer `pnpm nx g generators:app ...` for new team apps so generated projects stay aligned with the repo tags and folder conventions
 
 ## When to use nx_docs
 

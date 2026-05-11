@@ -1,4 +1,4 @@
 packages:
   - "neo"
-  - "demo/demo-app"
   - "tools/generators"
+  - "apps/**"
