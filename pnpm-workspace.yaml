@@ -1,4 +1,10 @@
 packages:
-  - "neo"
-  - "tools/generators"
-  - "apps/**"
+  - neo
+  - tools/generators
+  - apps/**
+
+onlyBuiltDependencies:
+  - '@swc/core'
+  - cypress
+  - esbuild
+  - nx
