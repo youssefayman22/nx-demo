@@ -4,23 +4,14 @@
   "projectRoots": ["neo", "apps/**", "tools/**"],
   "analytics": true,
   "targetDefaults": {
-    "build": {
-      "cache": true,
-      "dependsOn": ["^build"]
-    },
+    "build": { "cache": true, "dependsOn": ["^build"] },
     "@nx/vite:build": {
       "cache": true,
       "dependsOn": ["^build"],
       "inputs": ["default", "^default"]
     },
-    "@nx/vitest:test": {
-      "cache": true,
-      "inputs": ["default", "^default"]
-    },
-    "lint": {
-      "outputs": ["{options.outputFile}"],
-      "cache": true
-    }
+    "@nx/vitest:test": { "cache": true, "inputs": ["default", "^default"] },
+    "lint": { "outputs": ["{options.outputFile}"], "cache": true }
   },
   "generators": {
     "@nx/react": {
@@ -30,13 +21,9 @@
         "linter": "eslint",
         "bundler": "vite"
       },
-      "component": {
-        "style": "css"
-      },
-      "library": {
-        "style": "css",
-        "linter": "eslint"
-      }
+      "component": { "style": "css" },
+      "library": { "style": "css", "linter": "eslint" }
     }
-  }
+  },
+  "nxCloudId": "6a02d2c165df9cefc8dd6743"
 }
