@@ -1,11 +1,12 @@
 import { defineConfig } from 'vitest/config';
 import react from '@vitejs/plugin-react';
+import { nxViteTsPaths } from '@nx/vite/plugins/nx-tsconfig-paths.plugin';
 import { resolve } from 'path';
 
 export default defineConfig({
   root: __dirname,
   cacheDir: '../../../node_modules/.vite/apps/de/landing-page',
-  plugins: [react()],
+  plugins: [react(), nxViteTsPaths()],
   css: {
     modules: {
       localsConvention: 'camelCase',
