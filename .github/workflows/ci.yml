@@ -47,23 +47,8 @@ jobs:
       - name: Check formatting
         run: pnpm exec nx format:check --base=$NX_BASE --head=$NX_HEAD
 
-      - name: Lint affected projects
-        run: pnpm exec nx affected -t lint --parallel=3
-        env:
-          NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
-
-      - name: Build affected projects
-        run: pnpm exec nx affected -t build --parallel=3
-        env:
-          NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
-
-      - name: Test affected projects
-        run: pnpm exec nx affected -t test --parallel=2 --coverage
-        env:
-          NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
-
-      - name: Build storybook (design system)
-        run: pnpm exec nx affected -t build-storybook
+      - name: Run affected tasks (lint, build, test, storybook)
+        run: pnpm exec nx affected -t lint build test build-storybook
         env:
           NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
 
