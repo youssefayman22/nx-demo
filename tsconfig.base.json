@@ -15,7 +15,9 @@
     "skipDefaultLibCheck": true,
     "jsx": "react-jsx",
     "strict": true,
-    "paths": {}
+    "paths": {
+      "@neo/ui": ["neo/src/index.ts"]
+    }
   },
   "exclude": ["node_modules", "tmp"]
 }

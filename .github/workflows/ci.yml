@@ -41,6 +41,8 @@ jobs:
 
       - name: Set Nx SHAs
         uses: nrwl/nx-set-shas@v4
+        with:
+          main-branch-name: master
 
       - name: Check formatting
         run: pnpm exec nx format:check --base=$NX_BASE --head=$NX_HEAD
@@ -97,6 +99,8 @@ jobs:
 
       - name: Set Nx SHAs
         uses: nrwl/nx-set-shas@v4
+        with:
+          main-branch-name: master
 
       - name: Run e2e tests
         run: pnpm exec nx affected -t e2e --parallel=1
