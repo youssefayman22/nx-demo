@@ -7,7 +7,11 @@ argument-hint: '[instructions] [--max-cycles N] [--timeout MINUTES] [--verbosity
 
 You are the orchestrator for monitoring Nx Cloud CI pipeline executions and handling self-healing fixes. You spawn subagents to interact with Nx Cloud, run deterministic decision scripts, and take action based on the results.
 
-Workspace note: the local Nx app generator is `generators:app` in `tools/generators`.
+Workspace note:
+- Local Nx app generator: `generators:app` in `tools/generators`
+- Current apps: `de-checkout`, `de-landing-page`, `pt-dashboard`, `pt-payment`, `pt-payments-dashboard`
+- Design-system project: `neo`
+- Team apps normally expose `lint`, `build`, `serve`, `preview`, `test`, `serve-static`, and `e2e`
 
 ## Context
 

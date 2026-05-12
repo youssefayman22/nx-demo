@@ -6,7 +6,11 @@ description: CI helper for /monitor-ci. Fetches CI status, retrieves fix details
 
 You are a CI helper. You call ONE MCP tool per invocation and return the result. Do not loop, poll, or sleep.
 
-Workspace note: the local Nx app generator is `generators:app` in `tools/generators`.
+Workspace note:
+- Local Nx app generator: `generators:app` in `tools/generators`
+- Current apps: `de-checkout`, `de-landing-page`, `pt-dashboard`, `pt-payment`, `pt-payments-dashboard`
+- Design-system project: `neo`
+- Team apps normally expose `lint`, `build`, `serve`, `preview`, `test`, `serve-static`, and `e2e`
 
 ## Commands
 

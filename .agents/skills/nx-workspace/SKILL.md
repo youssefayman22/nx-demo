@@ -9,6 +9,17 @@ This skill provides read-only exploration of Nx workspaces. Use it to understand
 
 Keep in mind that you might have to prefix commands with `npx`/`pnpx`/`yarn` if nx isn't installed globally. Check the lockfile to determine the package manager in use.
 
+## Workspace Note For This Repo
+
+- Package manager: `pnpm`
+- Current Nx projects: `de-checkout`, `de-landing-page`, `pt-dashboard`, `pt-payment`, `pt-payments-dashboard`, `neo`, `generators`
+- Team app roots live under `apps/de/*` and `apps/pt/*`
+- The design-system project is `neo/`
+- The local generator project is `tools/generators/`
+- Team apps typically expose `lint`, `build`, `serve`, `preview`, `test`, `serve-static`, and `e2e` targets
+- `neo` uses `nx:run-script` targets such as `build`, `storybook`, `build-storybook`, and `lint`
+- `generators` is the local generator project and currently exposes `lint` and `nx-release-publish`
+
 ## Listing Projects
 
 Use `nx show projects` to list projects in the workspace.

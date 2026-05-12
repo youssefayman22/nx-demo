@@ -9,6 +9,13 @@ Nx generators are powerful tools that scaffold projects, make automated code mig
 
 Workspace note for this repo: the local team-app generator is discoverable as `generators:app` in `tools/generators`.
 
+Current repo snapshot:
+- Existing team apps: `de-checkout`, `de-landing-page`, `pt-dashboard`, `pt-payment`, `pt-payments-dashboard`
+- Existing team folders: `apps/de/*` and `apps/pt/*`
+- Design system library: `neo/`
+- Generator inputs: `name`, `team`, optional `description`
+- Generated app structure should match the existing `src/app`, `src/features`, and `src/shared` layout used by the current apps
+
 This skill applies when the user wants to:
 
 - Create new projects like libraries or applications

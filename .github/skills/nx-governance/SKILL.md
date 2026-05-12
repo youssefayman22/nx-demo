@@ -5,7 +5,7 @@ description: "Enforce multi-team governance rules in this Nx monorepo. USE WHEN:
 
 # Nx Governance Skill
 
-This skill enforces the multi-team governance model for the Neo monorepo.
+This skill enforces the multi-team governance model for this Nx demo monorepo.
 
 ## When to Invoke
 
@@ -51,18 +51,32 @@ Every project MUST have all three tag dimensions:
 
 ```
 neo/                        → type:design-system, team:platform, scope:public
-demo/demo-app/              → type:app, team:platform, scope:internal
-apps/<team>/<app-name>/     → type:app, team:<team>, scope:internal
-libs/shared/<lib-name>/     → type:shared-lib, team:platform, scope:public
-tools/generators/           → Custom Nx generators (not an Nx project)
+apps/de/checkout/           → type:app, team:de, scope:internal
+apps/de/landing-page/       → type:app, team:de, scope:internal
+apps/pt/dashboard/          → type:app, team:pt, scope:internal
+apps/pt/payment/            → type:app, team:pt, scope:internal
+apps/pt/payments-dashboard/ → type:app, team:pt, scope:internal
+tools/generators/           → Local Nx generator project (`generators`)
 ```
+
+## Current Project Inventory
+
+- Applications: `de-checkout`, `de-landing-page`, `pt-dashboard`, `pt-payment`, `pt-payments-dashboard`
+- Public design system: `neo`
+- Local tools project: `generators`
+
+Team applications currently resolve to standard Nx/Vite targets:
+- `lint`, `build`, `serve`, `preview`, `test`, `serve-static`, `e2e`
+
+The design system resolves to script-based targets:
+- `build`, `storybook`, `build-storybook`, `lint`
 
 ## Custom App Generator
 
 When creating a new team application, use:
 
 ```bash
-pnpm nx g @neo/app-generator --name=my-app --team=payments
+pnpm nx g generators:app my-app --team=pt
 ```
 
 The generator automatically:
@@ -71,6 +85,8 @@ The generator automatically:
 - Creates feature-based structure: `src/app/`, `src/features/`, `src/shared/`
 - Configures CSS Modules and `@/` path alias
 - Does NOT create per-project ESLint config
+
+Use the current app folders as naming and structure references before generating a new project.
 
 ## Validation Checklist
 
