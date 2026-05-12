@@ -67,6 +67,12 @@ jobs:
         env:
           NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
 
+      - name: Nx Cloud Fix CI
+        if: failure()
+        run: pnpm exec nx fix-ci
+        env:
+          NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
+
   e2e:
     runs-on: ubuntu-latest
     steps:
@@ -104,6 +110,12 @@ jobs:
 
       - name: Run e2e tests
         run: pnpm exec nx affected -t e2e --parallel=1
+        env:
+          NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
+
+      - name: Nx Cloud Fix CI
+        if: failure()
+        run: pnpm exec nx fix-ci
         env:
           NX_CLOUD_ACCESS_TOKEN: ${{ secrets.NX_CLOUD_ACCESS_TOKEN }}
 
