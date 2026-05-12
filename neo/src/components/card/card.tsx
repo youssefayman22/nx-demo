@@ -6,7 +6,7 @@ type CardProps = {
   variant?: "default" | "elevated" | "outlined";
 };
 
-
+//comment
 export const Card = ({ title, children, variant = "default" }: CardProps) => {
   return (
     <div className={`neo-card neo-card--${variant}`}>

@@ -11,7 +11,7 @@ describe('App', () => {
   it('should have a greeting as the title', () => {
     const { getAllByText } = render(<App />);
     expect(
-      getAllByText(new RegExp('Welcome de-landing-page', 'gi')).length > 0,
+      getAllByText(/Welcome to Neo Store/i).length > 0,
     ).toBeTruthy();
   });
 });
