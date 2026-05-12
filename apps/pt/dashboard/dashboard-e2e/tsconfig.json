@@ -1,19 +1,12 @@
 {
   "extends": "../tsconfig.json",
   "compilerOptions": {
-    "moduleResolution": "node10",
+    "moduleResolution": "bundler",
     "allowJs": true,
     "outDir": "../../../dist/out-tsc",
-    "module": "commonjs",
+    "module": "ESNext",
     "types": ["cypress", "node"],
     "sourceMap": false
   },
-  "include": [
-    "**/*.ts",
-    "**/*.js",
-    "../cypress.config.ts",
-    "../**/*.cy.ts",
-    "../**/*.cy.js",
-    "../**/*.d.ts"
-  ]
+  "include": ["**/*.ts", "**/*.js"]
 }
